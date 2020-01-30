@@ -30,5 +30,4 @@ class ResourceCreatedDiscoverabilityListener implements ApplicationListener<Reso
         final URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{idOfNewResource}").buildAndExpand(idOfNewResource).toUri();
         response.setHeader(HttpHeaders.LOCATION, uri.toASCIIString());
     }
-
 }

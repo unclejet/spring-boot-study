@@ -8,3 +8,6 @@ https://github.com/eugenp/tutorials/tree/master/spring-boot-rest
 # 目标
 此项目把关于etag部分的源码筛出来，并且在springboot IT框架下运行通过
 
+# 核心点
+//todo 
+

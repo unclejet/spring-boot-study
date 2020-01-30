@@ -135,7 +135,17 @@
     </dependencyManagement>
     <modules>
         <module>spring-boot-rest-etag</module>
+        <module>rest-assured-test-simple</module>
     </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
