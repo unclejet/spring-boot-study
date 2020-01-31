@@ -9,5 +9,7 @@ https://github.com/eugenp/tutorials/tree/master/spring-boot-rest
 此项目把关于etag部分的源码筛出来，并且在springboot IT框架下运行通过
 
 # 核心点
-//todo 
+1. 虽然测试入口是FooLiveTest，但是etag相关的测试都在AbstractBasicLiveTest
+2. 只要在config类加了ShallowEtagHeaderFilter，就会在header头部带上etag字段
+3. demo也演示了可以自定义etag，在FooController的findByIdWithCustomEtag方法
 
