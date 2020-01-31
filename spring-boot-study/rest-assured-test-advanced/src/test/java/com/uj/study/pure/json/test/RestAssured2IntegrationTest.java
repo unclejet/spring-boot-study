@@ -42,7 +42,7 @@ public class RestAssured2IntegrationTest {
 
     @Test
     public void whenRequestedPost_thenCreated() {
-        with().body(new Odd(5.25f, 1, 13.1f, "X"))
+        RestAssured.with().body(new Odd(5.25f, 1, 13.1f, "X"))
             .when()
             .request("POST", "/odds/new")
             .then()
