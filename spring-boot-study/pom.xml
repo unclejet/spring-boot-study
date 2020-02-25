@@ -153,6 +153,7 @@
         <module>spring-boot-rest-etag</module>
         <module>rest-assured-test-simple</module>
         <module>rest-assured-test-advanced</module>
+        <module>custom-media-type</module>
     </modules>
 
     <build>

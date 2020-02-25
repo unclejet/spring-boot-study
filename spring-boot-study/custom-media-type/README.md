@@ -1,0 +1,1 @@
+[A Custom Media Type for a Spring REST API](https://www.baeldung.com/spring-rest-custom-media-type)
