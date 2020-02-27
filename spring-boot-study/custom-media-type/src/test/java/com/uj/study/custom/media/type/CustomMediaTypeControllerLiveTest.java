@@ -1,6 +1,7 @@
 package com.uj.study.custom.media.type;
 
 import io.restassured.http.ContentType;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,6 +29,16 @@ public class CustomMediaTypeControllerLiveTest {
                 .accept("application/vnd.baeldung.api.v1+json")
                 .when()
                 .get(URL_PREFIX + "/public/api/items/1")
+                .then()
+                .contentType(ContentType.JSON).and().statusCode(200);
+    }
+
+    @Test
+    public void givenServiceEndpoint_whenGetRequestSecondAPIVersion_thenShouldReturn200() {
+        given()
+                .accept("application/vnd.baeldung.api.v2+json")
+                .when()
+                .get(URL_PREFIX + "/public/api/items/2")
                 .then()
                 .contentType(ContentType.JSON).and().statusCode(200);
     }
