@@ -165,6 +165,7 @@
         <module>rest-assured-test-simple</module>
         <module>rest-assured-test-advanced</module>
         <module>custom-media-type</module>
+        <module>rest-hateoas</module>
     </modules>
 
     <build>
