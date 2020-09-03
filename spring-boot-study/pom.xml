@@ -190,6 +190,7 @@
         <module>rest-hateoas</module>
         <module>rest-hateoas-xml</module>
         <module>spring-testing</module>
+
     </modules>
 
 
