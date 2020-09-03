@@ -1,6 +1,6 @@
 package com.uj.study.hateoas.xml.model;
 
-import org.springframework.hateoas.RepresentationModel;
+import org.springframework.hateoas.ResourceSupport;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -12,5 +12,5 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @version:
  */
 @XmlRootElement(name="employee-report")
-public class EmployeeReport extends RepresentationModel<EmployeeReport> {
+public class EmployeeReport extends ResourceSupport {
 }

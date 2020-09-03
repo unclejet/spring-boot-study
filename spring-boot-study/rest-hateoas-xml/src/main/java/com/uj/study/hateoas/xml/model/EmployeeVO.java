@@ -1,6 +1,6 @@
 package com.uj.study.hateoas.xml.model;
 
-import org.springframework.hateoas.RepresentationModel;
+import org.springframework.hateoas.ResourceSupport;
 
 import javax.xml.bind.annotation.*;
 
@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.*;
  */
 @XmlRootElement(name = "employee")
 @XmlAccessorType(XmlAccessType.NONE)
-public class EmployeeVO extends RepresentationModel<EmployeeVO> {
+public class EmployeeVO extends ResourceSupport {
 //    private static final long serialVersionUID = 1L;
 
     public EmployeeVO(Integer id, String firstName, String lastName, String email) {
@@ -25,7 +25,7 @@ public class EmployeeVO extends RepresentationModel<EmployeeVO> {
     }
 
     public EmployeeVO() {
-
+        super();
     }
 
     @XmlAttribute
@@ -40,7 +40,37 @@ public class EmployeeVO extends RepresentationModel<EmployeeVO> {
     @XmlElement
     private String email;
 
-    //removed getters and setters for readability
+    public Integer getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(Integer employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     @Override
     public String toString() {

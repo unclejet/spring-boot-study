@@ -4,6 +4,9 @@ import com.uj.study.hateoas.xml.dao.EmployeeDB;
 import com.uj.study.hateoas.xml.model.EmployeeListVO;
 import com.uj.study.hateoas.xml.model.EmployeeReport;
 import com.uj.study.hateoas.xml.model.EmployeeVO;
+import org.springframework.hateoas.Link;
+import org.springframework.hateoas.mvc.ControllerLinkBuilder;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,22 +25,48 @@ public class EmployeeRESTController {
 
     @RequestMapping(value = "/employees")
     public EmployeeListVO getAllEmployees() {
-        EmployeeListVO employeesList = new EmployeeListVO();
+        EmployeeListVO employeeListVO = new EmployeeListVO();
+        for (EmployeeVO employee :
+                EmployeeDB.getEmployeeList()) {
+            Link link = ControllerLinkBuilder.linkTo(EmployeeRESTController.class)
+                    .slash(employee.getEmployeeId())
+                    .withSelfRel();
+            employee.add(link);
 
-        for (EmployeeVO employee : EmployeeDB.getEmployeeList()) {
-            employeesList.getEmployees().add(employee);
+            ResponseEntity<EmployeeReport> methodLinkBuilder = ControllerLinkBuilder.methodOn(EmployeeRESTController.class).getReportByEmployeeById(employee.getEmployeeId());
+            Link reportLink = ControllerLinkBuilder.linkTo(methodLinkBuilder).withRel("employee-report");
+            employee.add(reportLink);
+
+            employeeListVO.getEmployees().add(employee);
         }
 
-        return employeesList;
+        Link selfLink = ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(EmployeeRESTController.class).getAllEmployees()).withSelfRel();
+        employeeListVO.add(selfLink);
+        return employeeListVO;
     }
 
     @RequestMapping(value = "/employees/{id}")
-    public ResponseEntity<EmployeeVO> getEmployeeById(@PathVariable("id") int id) {
+    public HttpEntity<EmployeeVO> getEmployeeById(@PathVariable("id") int id) {
         if (id <= 3) {
-            EmployeeVO employee = EmployeeDB.getEmployeeList().get(id - 1);
-            return new ResponseEntity<EmployeeVO>(employee, HttpStatus.OK);
+            EmployeeVO employee = EmployeeDB.getEmployeeList().get(id-1);
+
+            //Self link
+            Link selfLink = ControllerLinkBuilder
+                    .linkTo(EmployeeRESTController.class)
+                    .slash(employee.getEmployeeId())
+                    .withSelfRel();
+
+            //Method link
+            Link reportLink = ControllerLinkBuilder
+                    .linkTo(ControllerLinkBuilder.methodOn(EmployeeRESTController.class)
+                            .getReportByEmployeeById(employee.getEmployeeId()))
+                    .withRel("report");
+
+            employee.add(selfLink);
+//            employee.add(reportLink);
+            return new ResponseEntity<>(employee, HttpStatus.OK);
         }
-        return new ResponseEntity<EmployeeVO>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(value = "/employees/{id}/report")
