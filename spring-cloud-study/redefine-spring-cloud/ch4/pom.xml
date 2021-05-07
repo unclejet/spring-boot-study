@@ -13,6 +13,8 @@
         <module>ch4-5-eureka-server</module>
         <module>ch4-5-provider</module>
         <module>ch4-5-consumer</module>
+        <module>ch4-4-feign-upload-client</module>
+        <module>ch4-4-feign-file-server</module>
     </modules>
     <packaging>pom</packaging>
 
