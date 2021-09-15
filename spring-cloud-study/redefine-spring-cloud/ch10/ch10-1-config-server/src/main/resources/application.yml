@@ -1,0 +1,13 @@
+server:
+  port: 9090
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/unclejet/spring-cloud-config.git
+          username: unclejet@126.com
+          password: gitee01034032
+          search-paths: SC-BOOK-CONFIG
+  application:
+    name: sc-configserver
