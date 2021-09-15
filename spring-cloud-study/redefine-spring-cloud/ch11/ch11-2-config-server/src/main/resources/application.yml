@@ -5,7 +5,7 @@ spring:
         git:
           uri: https://gitee.com/unclejet/spring-cloud-config.git
           username: unclejet@126.com
-          password: gitee01034032
+          password: xxx
           search-paths: SC-BOOK-CONFIG
   application:
     name: sc-config-git
