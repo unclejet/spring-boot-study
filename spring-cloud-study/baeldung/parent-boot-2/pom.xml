@@ -2,25 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>baeldung</artifactId>
-        <groupId>com.uj.study</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>parent-boot-2</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>parent-boot-2</name>
     <packaging>pom</packaging>
+    <description>Parent for all Spring Boot 2 modules</description>
 
-    <properties>
-        <rest-assured.version>3.3.0</rest-assured.version>
-        <!-- plugins -->
-        <thin.version>1.0.22.RELEASE</thin.version>
-        <spring-boot.version>2.5.4</spring-boot.version>
-        <aspectjweaver.version>1.9.1</aspectjweaver.version>
-        <!-- this property can be removed once we update Mockito version in the main pom.xml -->
-        <mockito.version>3.4.0</mockito.version>
-    </properties>
+    <parent>
+        <groupId>com.uj.study</groupId>
+        <artifactId>baeldung</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
 
     <dependencyManagement>
         <dependencies>
@@ -33,7 +26,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <dependencies>
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -46,6 +38,22 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <configuration>
+                        <mainClass>${start-class}</mainClass>
+                        <!-- this is necessary as we're not using the Boot parent -->
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
     <profiles>
         <profile>
@@ -69,6 +77,14 @@
         </profile>
     </profiles>
 
-
+    <properties>
+        <rest-assured.version>3.3.0</rest-assured.version>
+        <!-- plugins -->
+        <thin.version>1.0.22.RELEASE</thin.version>
+        <spring-boot.version>2.5.4</spring-boot.version>
+        <aspectjweaver.version>1.9.1</aspectjweaver.version>
+        <!-- this property can be removed once we update Mockito version in the main pom.xml -->
+        <mockito.version>3.4.0</mockito.version>
+    </properties>
 
 </project>
