@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.uj.study</groupId>
+    <artifactId>ch17</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>ch17-2-1-gateway</module>
+        <module>ch17-2-2-gateway</module>
+        <module>ch17-2-3-gateway</module>
+        <module>ch17-2-service</module>
+        <module>ch17-2-4-gateway</module>
+        <module>ch17-2-5-gateway</module>
+        <module>ch17-2-6-gateway</module>
+        <module>ch17-2-7-gateway</module>
+        <module>ch17-2-8-gateway</module>
+        <module>ch17-2-9-gateway</module>
+        <module>ch17-3-service</module>
+        <module>ch17-3-1-gateway</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+    </parent>
+
+    <!-- 管理依赖 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--  利用传递依赖，公共部分  -->
+    <dependencies>
+    </dependencies>
+
+
+
+    <!--注意： 这里必须要添加，否则各种依赖有问题 -->
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/libs-milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+</project>

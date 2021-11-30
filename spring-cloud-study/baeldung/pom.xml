@@ -13,6 +13,8 @@
         <module>spring-cloud</module>
         <module>parent-boot-2</module>
         <module>spring-5-reactive-client</module>
+        <module>spring-boot-test</module>
+        <module>spring-boot-rest</module>
     </modules>
 
     <dependencies>

@@ -1,0 +1,25 @@
+server:
+  port: 8885
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
+
+management.endpoints.web.exposure.include: '*'
+
+#spring:
+#  application:
+#  name: spring-cloud-gateway
+#  cloud:
+#    gateway:
+#      routes:
+#      - id: between_route
+#        uri: http://xujin.org
+#        predicates:
+#        - name: Between
+#          args:
+#            datetime1: 2021-03-15T00:02:48.513+08:00[Asia/Shanghai]
+#            datetime2: 2021-11-20T02:02:48.516+08:00[Asia/Shanghai]
