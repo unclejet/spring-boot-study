@@ -18,6 +18,7 @@
 
     <modules>
         <module>spring-cloud-gateway</module>
+        <module>spring-cloud-contract</module>
     </modules>
 
     <build>
