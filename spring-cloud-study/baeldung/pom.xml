@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.uj.study</groupId>
-    <artifactId>baeldung</artifactId>
+    <artifactId>baeldung</artifactId> <!-- baeldung means parent-modules-->
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -17,6 +17,7 @@
         <module>spring-boot-rest</module>
         <module>maven-modules</module>
         <module>failsafe-plugin-test</module>
+        <module>persistence-modules</module>
     </modules>
 
     <dependencies>
