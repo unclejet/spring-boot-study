@@ -24,7 +24,7 @@
         <github-json-schema-validator.version>2.2.6</github-json-schema-validator.version>
 
         <!-- test -->
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <junit-platform.version>1.2.0</junit-platform.version>
         <junit-jupiter.version>5.2.0</junit-jupiter.version>
         <junit-jupiter-api.version>5.6.2</junit-jupiter-api.version>
